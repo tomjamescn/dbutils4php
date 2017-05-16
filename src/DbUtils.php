@@ -68,7 +68,7 @@ class DbUtils{
         $this->log($sql);
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $rows = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         if (count($rows) == 1 && $rows[0]['num'] >= 1) {
             return true;
         }else {
