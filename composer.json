@@ -1,0 +1,24 @@
+{
+    "name": "dbutils4php",
+    "description": "yet anothor db utils for php",
+    "keywords": ["db", "pdo", "utils"],
+    "license": "",
+    "authors": [
+        {
+            "name": "tomjamescn",
+            "email": "tomjamescn@gmail.com"
+        }
+    ],
+    "type": "project",
+    "require": {
+		"php": ">=5.4"
+    },
+	"require-dev": {
+		"phpunit/phpunit": "5.2.*"
+    },
+	"autoload": {
+        "psr-4": {
+            "tomjamescn\\dbutils4php\\": "src/"
+        }
+    }
+}
