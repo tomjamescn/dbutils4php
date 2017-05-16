@@ -1,5 +1,5 @@
 {
-    "name": "dbutils4php",
+    "name": "tomjamescn/dbutils4php",
     "description": "yet anothor db utils for php",
     "keywords": ["db", "pdo", "utils"],
     "license": "",
