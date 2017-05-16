@@ -110,13 +110,13 @@ class DbUtils{
 
 
     function insertOrUpdate($table, $data, $whereSql) {
-        $exist = checkExist($table, $whereSql);
+        $exist = $this->checkExist($table, $whereSql);
         if ($exist) {
             //update
-            updateWithStmt($table, $data, $whereSql);
+            $this->updateWithStmt($table, $data, $whereSql);
         }else {
             //insert
-            insertWithStmt($table, $data);
+            $this->insertWithStmt($table, $data);
         }
     }
 
