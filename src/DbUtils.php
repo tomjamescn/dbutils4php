@@ -12,8 +12,8 @@ class DbUtils{
         $this->debug = $debug;
 
         try {
-            $this->pdo = new PDO("mysql:host={$host};dbname={$dbName}", $userName, $userPwd, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
-        }catch (PDOException $e) {
+            $this->pdo = new \PDO("mysql:host={$host};dbname={$dbName}", $userName, $userPwd, array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
+        }catch (\PDOException $e) {
             throw new \Exception('new PDO failed! ' . $e->getMessage());
         }
     }
