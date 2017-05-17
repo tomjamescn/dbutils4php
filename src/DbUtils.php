@@ -32,7 +32,7 @@ class DbUtils{
         if ($ret === false) {
             $err = $this->pdo->errorInfo();
             if ($err[0] === '00000' || $err[0] === '01000') {
-                throw new \Exception('Ö´ÐÐsql´íÎó '.$sql.' '.json_encode($err).'');
+                throw new \Exception('æ‰§è¡Œsqlé”™è¯¯ '.$sql.' '.json_encode($err).'');
             }
         }
     }
@@ -56,7 +56,7 @@ class DbUtils{
         $stmt = $pdo->prepare($sql);
         $ret = $stmt->execute($executeInputParameters);
         if ($ret == false) {
-            throw new \Exception("Ö´ÐÐsql³ö´í,insertWithStmt");
+            throw new \Exception("æ‰§è¡Œsqlå‡ºé”™,insertWithStmt\n".print_r($stmt->errorInfo(), true));
         }
     }
 
@@ -83,7 +83,7 @@ class DbUtils{
         $ret = $pdo->exec($sql);
         if ($ret === false) {
             $err = $pdo->errorInfo();
-            throw new \Exception('Ö´ÐÐsql´íÎó '.$sql.' '.json_encode($err).'');
+            throw new \Exception('æ‰§è¡Œsqlé”™è¯¯ '.$sql.' '.json_encode($err));
         }
     }
 
@@ -99,11 +99,11 @@ class DbUtils{
         }
         $setsStr = implode(',', $sets);
         $sql = "update `{$table}` set {$setsStr} where {$whereSql}";
-        echo "$sql \n";
+        $this->log($sql);
         $stmt = $pdo->prepare($sql);
         $ret = $stmt->execute($executeInputParameters);
         if ($ret == false) {
-            throw new \Exception("Ö´ÐÐsql³ö´í,updateWithStmt");
+            throw new \Exception("æ‰§è¡Œsqlå‡ºé”™,updateWithStmt\n".print_r($stmt->errorInfo(), true));
         }
     }
 
