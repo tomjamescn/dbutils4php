@@ -7,12 +7,12 @@ class DbUtils{
     public $pdo;
     public $debug = false;
 
-    public function __construct($host, $dbName, $userName, $userPwd, $debug)
+    public function __construct($host, $port, $dbName, $userName, $userPwd, $debug)
     {
         $this->debug = $debug;
 
         try {
-            $this->pdo = new \PDO("mysql:host={$host};dbname={$dbName}", $userName, $userPwd, array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
+            $this->pdo = new \PDO("mysql:host={$host};port={$port};dbname={$dbName}", $userName, $userPwd, array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
         }catch (\PDOException $e) {
             throw new \Exception('new PDO failed! ' . $e->getMessage());
         }
